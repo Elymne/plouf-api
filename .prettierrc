@@ -2,9 +2,10 @@
     "semi": true,
     "proseWrap": "always",
     "arrowParens": "avoid",
-    "trailingComma": "all",
+    "trailingComma": "none",
     "quoteProps": "as-needed",
     "singleQuote": true,
     "jsxSingleQuote": true,
-    "tabWidth": 4
+    "tabWidth": 4,
+    "bracketSpacing": false
 }

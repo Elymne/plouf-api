@@ -1,6 +1,6 @@
 export const swaggerConfig = {
     info: {
-        title: "Plouf API",
+        title: 'Plouf API',
         version: '1.0.0'
     }
 };
