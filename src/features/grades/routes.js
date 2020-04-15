@@ -1,19 +1,19 @@
 import handler from './handler';
 import uuid from '../common';
-import { subject, subjectArray } from './validators';
+import { Grade, GradeArray } from './validators';
 
-const subjectRoutes = [
+const GradeRoutes = [
     {
         method: 'GET',
-        path: '/subjects',
+        path: '/Grades',
         options: {
-            handler: handler.fetchSubjects,
-            description: 'Get subjects',
-            notes: 'Returns all subjects',
-            tags: ['api', 'subject'],
+            handler: handler.fetchGrades,
+            description: 'Get grades',
+            notes: 'Returns all grades',
+            tags: ['api', 'grade'],
             response: {
                 status: {
-                    200: subjectArray,
+                    200: GradeArray,
                     400: undefined,
                     404: undefined,
                     500: undefined,
@@ -23,18 +23,18 @@ const subjectRoutes = [
     },
     {
         method: 'GET',
-        path: '/subjects/{id}',
+        path: '/Grades/{id}',
         options: {
-            handler: handler.fetchSubjectById,
-            description: 'Get subject by id',
-            notes: 'Returns subject by id',
-            tags: ['api', 'subject'],
+            handler: handler.fetchGradeById,
+            description: 'Get grade by id',
+            notes: 'Returns grade by id',
+            tags: ['api', 'grade'],
             validate: {
                 params: uuid,
             },
             response: {
                 status: {
-                    200: subject,
+                    200: Grade,
                     400: undefined,
                     404: undefined,
                     500: undefined,
@@ -44,14 +44,14 @@ const subjectRoutes = [
     },
     {
         method: 'POST',
-        path: '/subjects',
+        path: '/Grades',
         options: {
-            handler: handler.createSubject,
-            description: 'Create subject',
-            notes: 'Creates a new subject',
-            tags: ['api', 'subject'],
+            handler: handler.createGrade,
+            description: 'Create grade',
+            notes: 'Creates a new grade',
+            tags: ['api', 'grade'],
             validate: {
-                payload: subject,
+                payload: Grade,
             },
             response: {
                 status: {
@@ -65,15 +65,15 @@ const subjectRoutes = [
     },
     {
         method: 'PATCH',
-        path: '/subjects/{id}',
+        path: '/Grades/{id}',
         options: {
-            handler: handler.updateSubject,
-            description: 'Update subject by id',
-            notes: 'Updates a subject by id',
-            tags: ['api', 'subject'],
+            handler: handler.updateGrade,
+            description: 'Update grade by id',
+            notes: 'Updates a grade by id',
+            tags: ['api', 'grade'],
             validate: {
                 params: uuid,
-                payload: subject,
+                payload: Grade,
             },
             response: {
                 status: {
@@ -86,12 +86,12 @@ const subjectRoutes = [
     },
     {
         method: 'DELETE',
-        path: '/subjects/{id}',
+        path: '/Grades/{id}',
         options: {
-            handler: handler.deleteSubject,
-            description: 'Delete subject by id',
-            notes: 'Deletes a subject by id',
-            tags: ['api', 'subject'],
+            handler: handler.deleteGrade,
+            description: 'Delete grade by id',
+            notes: 'Deletes a grade by id',
+            tags: ['api', 'grade'],
             validate: {
                 params: uuid,
             },
@@ -106,4 +106,4 @@ const subjectRoutes = [
     },
 ];
 
-export default subjectRoutes;
+export default GradeRoutes;
