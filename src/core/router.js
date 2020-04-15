@@ -1,3 +1,5 @@
-import {routes as teapotRoutes} from '../features/teapot';
+import { routes as teapotRoutes } from '../features/teapot';
 
-export const routes = [...teapotRoutes];
+const routes = [...teapotRoutes];
+
+export default routes;

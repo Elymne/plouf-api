@@ -3,5 +3,7 @@
     "plugins": ["prettier"],
     "rules": {
         "prettier/prettier": ["error"]
+        //"import/export": 0,
+        //"import/prefer-default-export": "off"
     }
 }

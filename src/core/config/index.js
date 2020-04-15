@@ -1,3 +1,5 @@
-export * from './databaseConfig';
-export * from './serverConfig';
-export * from './swaggerConfig';
+import swaggerConfig from './swaggerConfig';
+import databaseConfig from './databaseConfig';
+import serverConfig from './serverConfig';
+
+export { swaggerConfig, databaseConfig, serverConfig };
