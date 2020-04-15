@@ -1,4 +1,4 @@
-export const routes = [
+const teapotRoutes = [
     {
         method: 'GET',
         path: '/teapot',
@@ -9,9 +9,11 @@ export const routes = [
             tags: ['api, teapot'],
             response: {
                 status: {
-                    418: undefined
-                }
-            }
-        }
-    }
+                    418: undefined,
+                },
+            },
+        },
+    },
 ];
+
+export default teapotRoutes;

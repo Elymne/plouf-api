@@ -1,1 +1,3 @@
-export * from './routes';
+import teapotRoutes from './routes';
+
+export default teapotRoutes;

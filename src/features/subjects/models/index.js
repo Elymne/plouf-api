@@ -1,3 +1,3 @@
 import subjectModel from './subject';
 
-export { subjectModel };
+export default subjectModel;

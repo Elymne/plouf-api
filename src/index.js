@@ -1,4 +1,4 @@
-import {createServer, database} from './core';
+import { createServer, database } from './core';
 
 const start = async () => {
     // Server init
@@ -9,4 +9,6 @@ const start = async () => {
     await database.sync();
 };
 
-start().catch(err => throw err);
+start().catch(err => {
+    throw err;
+});

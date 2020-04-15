@@ -1,5 +1,5 @@
 import database from './database';
-import router from './router';
+import routes from './router';
 import createServer from './server';
 
-export { database, router, createServer };
+export { database, routes, createServer };

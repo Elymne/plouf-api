@@ -1,5 +1,5 @@
-import { STRING, UUID, UUIDV4 } from 'sequelize';
-import { database } from '../../../core';
+import { UUID, UUIDV4 } from 'sequelize';
+import database from '../../../core';
 
 const RoomModel = database.define('Room', {
     id: {
@@ -10,4 +10,4 @@ const RoomModel = database.define('Room', {
     },
 });
 
-export default { RoomModel };
+export default RoomModel;
