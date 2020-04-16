@@ -8,13 +8,13 @@ const fetchGradeById = id => {
     return GradeModel.findByPk(id);
 };
 
-const createGrade = data => {
-    return GradeModel.create(data);
+const createGrade = grade => {
+    return GradeModel.create(grade);
 };
 
-const updateGrade = (id, data) => {
+const updateGrade = (id, grade) => {
     const options = { where: { id } };
-    return GradeModel.update(data, options);
+    return GradeModel.update(grade, options);
 };
 
 const deleteGrade = id => {

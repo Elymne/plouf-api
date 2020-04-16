@@ -8,13 +8,13 @@ const fetchSubjectById = id => {
     return SubjectModel.findByPk(id);
 };
 
-const createSubject = data => {
-    return SubjectModel.create(data);
+const createSubject = subjects => {
+    return SubjectModel.create(subjects);
 };
 
-const updateSubject = (id, data) => {
+const updateSubject = (id, subjects) => {
     const options = { where: { id } };
-    return SubjectModel.update(data, options);
+    return SubjectModel.update(subjects, options);
 };
 
 const deleteSubject = id => {

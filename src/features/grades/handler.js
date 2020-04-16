@@ -1,11 +1,10 @@
 import { notFound } from '@hapi/boom';
 import controller from './controller';
 
-const fetchGrades = (req, h) => {
-    const { offset, limit } = req.query;
+const fetchGrades = (_, h) => {
     return controller
-        .fetchGrades(offset, limit)
-        .then(data => h.response(data).code(200))
+        .fetchGrades()
+        .then(grades => h.response(grades).code(200))
         .catch(() => notFound('No data found'));
 };
 
@@ -13,7 +12,7 @@ const fetchGradeById = (req, h) => {
     const { id } = req.params;
     return controller
         .fetchGradeById(id)
-        .then(data => h.response(data).code(200))
+        .then(grade => h.response(grade).code(200))
         .catch(() => notFound('No data found'));
 };
 

@@ -4,7 +4,7 @@ import controller from './controller';
 const fetchSubjects = (req, h) => {
     return controller
         .fetchSubjects()
-        .then(data => h.response(data).code(200))
+        .then(subjects => h.response(subjects).code(200))
         .catch(() => notFound('No data found'));
 };
 
@@ -12,7 +12,7 @@ const fetchSubjectById = (req, h) => {
     const { id } = req.params;
     return controller
         .fetchSubjectById(id)
-        .then(data => h.response(data).code(200))
+        .then(subject => h.response(subjects).code(200))
         .catch(() => notFound('No data found'));
 };
 
