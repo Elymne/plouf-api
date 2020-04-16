@@ -1,3 +1,4 @@
-import Grade from './grade';
+import GradeModel from './grade';
+import UserGradeModel from './userGrade';
 
-export default Grade;
+export {GradeModel, UserGradeModel};

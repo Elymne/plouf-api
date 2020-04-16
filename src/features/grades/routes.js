@@ -1,6 +1,6 @@
 import handler from './handler';
-import uuid from '../common';
-import { grade, gradeArray } from './validators';
+import {integer} from '../common';
+import {grade, gradeArray, userGrade, userGradeArray} from './validators';
 
 const GradeRoutes = [
     {
@@ -16,10 +16,10 @@ const GradeRoutes = [
                     200: gradeArray,
                     400: undefined,
                     404: undefined,
-                    500: undefined,
-                },
-            },
-        },
+                    500: undefined
+                }
+            }
+        }
     },
     {
         method: 'GET',
@@ -30,17 +30,17 @@ const GradeRoutes = [
             notes: 'Returns grade by id',
             tags: ['api', 'grade'],
             validate: {
-                params: uuid,
+                params: integer
             },
             response: {
                 status: {
                     200: grade,
                     400: undefined,
                     404: undefined,
-                    500: undefined,
-                },
-            },
-        },
+                    500: undefined
+                }
+            }
+        }
     },
     {
         method: 'POST',
@@ -51,17 +51,17 @@ const GradeRoutes = [
             notes: 'Creates a new grade',
             tags: ['api', 'grade'],
             validate: {
-                payload: grade,
+                payload: grade
             },
             response: {
                 status: {
                     201: undefined,
                     400: undefined,
                     409: undefined,
-                    500: undefined,
-                },
-            },
-        },
+                    500: undefined
+                }
+            }
+        }
     },
     {
         method: 'PATCH',
@@ -72,17 +72,17 @@ const GradeRoutes = [
             notes: 'Updates a grade by id',
             tags: ['api', 'grade'],
             validate: {
-                params: uuid,
-                payload: grade,
+                params: integer,
+                payload: grade
             },
             response: {
                 status: {
                     204: undefined,
                     400: undefined,
-                    500: undefined,
-                },
-            },
-        },
+                    500: undefined
+                }
+            }
+        }
     },
     {
         method: 'DELETE',
@@ -93,17 +93,38 @@ const GradeRoutes = [
             notes: 'Deletes a grade by id',
             tags: ['api', 'grade'],
             validate: {
-                params: uuid,
+                params: integer
             },
             response: {
                 status: {
                     204: undefined,
                     400: undefined,
-                    500: undefined,
-                },
-            },
-        },
+                    500: undefined
+                }
+            }
+        }
     },
+    {
+        method: 'POST',
+        path: '/grades/users',
+        options: {
+            handler: handler.createUserGrade,
+            description: 'Create userGrade',
+            notes: 'Set a new grade to user',
+            tags: ['api', 'userGrade'],
+            validate: {
+                payload: userGrade
+            },
+            response: {
+                status: {
+                    201: undefined,
+                    400: undefined,
+                    409: undefined,
+                    500: undefined
+                }
+            }
+        }
+    }
 ];
 
 export default GradeRoutes;

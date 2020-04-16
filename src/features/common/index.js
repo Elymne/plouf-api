@@ -1,3 +1,4 @@
 import uuid from './uuid';
+import integer from './interger';
 
-export default uuid;
+export {uuid, integer};

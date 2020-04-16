@@ -1,6 +1,6 @@
 import handler from './handler';
-import uuid from '../common';
-import { subject, subjectArray } from './validators';
+import {integer} from '../common';
+import {subject, subjectArray} from './validators';
 
 const subjectRoutes = [
     {
@@ -16,10 +16,10 @@ const subjectRoutes = [
                     200: subjectArray,
                     400: undefined,
                     404: undefined,
-                    500: undefined,
-                },
-            },
-        },
+                    500: undefined
+                }
+            }
+        }
     },
     {
         method: 'GET',
@@ -30,17 +30,17 @@ const subjectRoutes = [
             notes: 'Returns subject by id',
             tags: ['api', 'subject'],
             validate: {
-                params: uuid,
+                params: integer
             },
             response: {
                 status: {
                     200: subject,
                     400: undefined,
                     404: undefined,
-                    500: undefined,
-                },
-            },
-        },
+                    500: undefined
+                }
+            }
+        }
     },
     {
         method: 'POST',
@@ -51,17 +51,17 @@ const subjectRoutes = [
             notes: 'Creates a new subject',
             tags: ['api', 'subject'],
             validate: {
-                payload: subject,
+                payload: subject
             },
             response: {
                 status: {
                     201: undefined,
                     400: undefined,
                     409: undefined,
-                    500: undefined,
-                },
-            },
-        },
+                    500: undefined
+                }
+            }
+        }
     },
     {
         method: 'PATCH',
@@ -72,17 +72,17 @@ const subjectRoutes = [
             notes: 'Updates a subject by id',
             tags: ['api', 'subject'],
             validate: {
-                params: uuid,
-                payload: subject,
+                params: integer,
+                payload: subject
             },
             response: {
                 status: {
                     204: undefined,
                     400: undefined,
-                    500: undefined,
-                },
-            },
-        },
+                    500: undefined
+                }
+            }
+        }
     },
     {
         method: 'DELETE',
@@ -93,17 +93,17 @@ const subjectRoutes = [
             notes: 'Deletes a subject by id',
             tags: ['api', 'subject'],
             validate: {
-                params: uuid,
+                params: integer
             },
             response: {
                 status: {
                     204: undefined,
                     400: undefined,
-                    500: undefined,
-                },
-            },
-        },
-    },
+                    500: undefined
+                }
+            }
+        }
+    }
 ];
 
 export default subjectRoutes;
