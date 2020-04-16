@@ -1,4 +1,6 @@
-import {Sequelize} from 'sequelize';
-import {databaseConfig} from './config';
+import { Sequelize } from 'sequelize';
+import { databaseConfig } from './config';
 
-export const database = new Sequelize(databaseConfig);
+const database = new Sequelize(databaseConfig);
+
+export default database;

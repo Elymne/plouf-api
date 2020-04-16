@@ -1,3 +1,7 @@
-import {routes as teapotRoutes} from '../features/teapot';
+import teapotRoutes from '../features/teapot';
+import subjectRoutes from '../features/subjects';
+import gradeRoutes from '../features/grades';
 
-export const routes = [...teapotRoutes];
+const routes = [...teapotRoutes, ...subjectRoutes, ...gradeRoutes];
+
+export default routes;

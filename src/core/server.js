@@ -2,10 +2,11 @@ import Hapi from '@hapi/hapi';
 import inert from '@hapi/inert';
 import vision from '@hapi/vision';
 import hapiSwagger from 'hapi-swagger';
-import {serverConfig, swaggerConfig} from './config';
-import {routes} from './router';
+import { serverConfig, swaggerConfig } from './config';
 
-export const createServer = async () => {
+import routes from './router';
+
+const createServer = async () => {
     const server = new Hapi.Server(serverConfig);
 
     await server.register([
@@ -13,8 +14,8 @@ export const createServer = async () => {
         vision,
         {
             plugin: hapiSwagger,
-            options: swaggerConfig
-        }
+            options: swaggerConfig,
+        },
     ]);
 
     server.route(routes);
@@ -29,3 +30,5 @@ export const createServer = async () => {
 
     return server;
 };
+
+export default createServer;
