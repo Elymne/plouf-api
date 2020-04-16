@@ -2,9 +2,8 @@ import { notFound } from '@hapi/boom';
 import controller from './controller';
 
 const fetchSubjects = (req, h) => {
-    const { offset, limit } = req.query;
     return controller
-        .fetchSubjects(offset, limit)
+        .fetchSubjects()
         .then(data => h.response(data).code(200))
         .catch(() => notFound('No data found'));
 };

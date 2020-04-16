@@ -1,11 +1,11 @@
 import handler from './handler';
 import uuid from '../common';
-import { Grade, GradeArray } from './validators';
+import { grade, gradeArray } from './validators';
 
 const GradeRoutes = [
     {
         method: 'GET',
-        path: '/Grades',
+        path: '/grades',
         options: {
             handler: handler.fetchGrades,
             description: 'Get grades',
@@ -13,7 +13,7 @@ const GradeRoutes = [
             tags: ['api', 'grade'],
             response: {
                 status: {
-                    200: GradeArray,
+                    200: gradeArray,
                     400: undefined,
                     404: undefined,
                     500: undefined,
@@ -23,7 +23,7 @@ const GradeRoutes = [
     },
     {
         method: 'GET',
-        path: '/Grades/{id}',
+        path: '/grades/{id}',
         options: {
             handler: handler.fetchGradeById,
             description: 'Get grade by id',
@@ -34,7 +34,7 @@ const GradeRoutes = [
             },
             response: {
                 status: {
-                    200: Grade,
+                    200: grade,
                     400: undefined,
                     404: undefined,
                     500: undefined,
@@ -44,14 +44,14 @@ const GradeRoutes = [
     },
     {
         method: 'POST',
-        path: '/Grades',
+        path: '/grades',
         options: {
             handler: handler.createGrade,
             description: 'Create grade',
             notes: 'Creates a new grade',
             tags: ['api', 'grade'],
             validate: {
-                payload: Grade,
+                payload: grade,
             },
             response: {
                 status: {
@@ -65,7 +65,7 @@ const GradeRoutes = [
     },
     {
         method: 'PATCH',
-        path: '/Grades/{id}',
+        path: '/grades/{id}',
         options: {
             handler: handler.updateGrade,
             description: 'Update grade by id',
@@ -73,7 +73,7 @@ const GradeRoutes = [
             tags: ['api', 'grade'],
             validate: {
                 params: uuid,
-                payload: Grade,
+                payload: grade,
             },
             response: {
                 status: {
@@ -86,7 +86,7 @@ const GradeRoutes = [
     },
     {
         method: 'DELETE',
-        path: '/Grades/{id}',
+        path: '/grades/{id}',
         options: {
             handler: handler.deleteGrade,
             description: 'Delete grade by id',
