@@ -1,14 +1,13 @@
-import { STRING, UUID, UUIDV4 } from 'sequelize';
+import {INTEGER, STRING} from 'sequelize';
 import { database } from '../../../core';
 
 const SubjectModel = database.define(
     'Subject',
     {
         id: {
-            type: UUID,
-            defaultValue: UUIDV4,
+            type: INTEGER,
             primaryKey: true,
-            allowNull: false,
+            autoIncrement: true
         },
         name: {
             type: STRING,
@@ -17,6 +16,7 @@ const SubjectModel = database.define(
     },
     {
         tableName: 'subject',
+        timestamps: false
     },
 );
 
