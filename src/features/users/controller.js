@@ -1,4 +1,5 @@
 import UserModel from './models';
+import SubjectModel from '../subjects/models';
 
 const fetchUsers = () => {
     return UserModel.findAll();

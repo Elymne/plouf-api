@@ -1,4 +1,4 @@
-import {STRING} from 'sequelize';
+import {STRING, INTEGER} from 'sequelize';
 import {database} from '../../../core';
 import SubjectModel from './../../subjects/models';
 
@@ -20,7 +20,7 @@ const UserModel = database.define(
         }
     },
     {
-        tableName: 'subject',
+        tableName: 'user',
         timestamps: false
     }
 );
