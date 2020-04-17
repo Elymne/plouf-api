@@ -1,5 +1,5 @@
 import handler from './handler';
-import {integer} from '../common';
+import {integer, uuid} from '../common';
 import {grade, gradeArray, userGrade, userGradeArray} from './validators';
 
 const GradeRoutes = [
@@ -105,8 +105,26 @@ const GradeRoutes = [
         }
     },
     {
+        method: 'GET',
+        path: '/users/grades',
+        options: {
+            handler: handler.fetchUserGrades,
+            description: 'Get grades',
+            notes: 'Returns all grades',
+            tags: ['api', 'grade'],
+            response: {
+                status: {
+                    200: userGradeArray,
+                    400: undefined,
+                    404: undefined,
+                    500: undefined
+                }
+            }
+        }
+    },
+    {
         method: 'POST',
-        path: '/grades/users',
+        path: '/users/grades',
         options: {
             handler: handler.createUserGrade,
             description: 'Create userGrade',
@@ -120,6 +138,26 @@ const GradeRoutes = [
                     201: undefined,
                     400: undefined,
                     409: undefined,
+                    500: undefined
+                }
+            }
+        }
+    },
+    {
+        method: 'DELETE',
+        path: '/users/{id}',
+        options: {
+            handler: handler.deleteUserGrade,
+            description: 'Delete user grade by id',
+            notes: 'Remove a grade of user by id',
+            tags: ['api', 'userGrade'],
+            validate: {
+                params: uuid
+            },
+            response: {
+                status: {
+                    204: undefined,
+                    400: undefined,
                     500: undefined
                 }
             }

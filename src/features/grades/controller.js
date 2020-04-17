@@ -22,8 +22,17 @@ const deleteGrade = id => {
     return GradeModel.destroy(options);
 };
 
+const fetchUserGrades = () => {
+    return UserGradeModel.findAll();
+};
+
 const createUserGrade = userGrade => {
     return UserGradeModel.create(userGrade);
+};
+
+const deleteUserGrade = id => {
+    const options = {where: {id}};
+    return UserGradeModel.destroy(options);
 };
 
 export default {
@@ -32,5 +41,8 @@ export default {
     createGrade,
     updateGrade,
     deleteGrade,
-    createUserGrade
+
+    fetchUserGrades,
+    createUserGrade,
+    deleteUserGrade
 };
