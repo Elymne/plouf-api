@@ -1,4 +1,4 @@
-import {GradeModel, UserGradeModel} from './models';
+import GradeModel from './models';
 
 const fetchGrades = () => {
     return GradeModel.findAll();
@@ -22,27 +22,10 @@ const deleteGrade = id => {
     return GradeModel.destroy(options);
 };
 
-const fetchUserGrades = () => {
-    return UserGradeModel.findAll();
-};
-
-const createUserGrade = userGrade => {
-    return UserGradeModel.create(userGrade);
-};
-
-const deleteUserGrade = id => {
-    const options = {where: {id}};
-    return UserGradeModel.destroy(options);
-};
-
 export default {
     fetchGrades,
     fetchGradeById,
     createGrade,
     updateGrade,
-    deleteGrade,
-
-    fetchUserGrades,
-    createUserGrade,
-    deleteUserGrade
+    deleteGrade
 };

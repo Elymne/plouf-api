@@ -1,19 +1,19 @@
 import handler from './handler';
-import {integer} from '../common';
-import {grade, gradeArray} from './validators';
+import {string} from '../common';
+import {user, userArray} from './validators';
 
-const GradeRoutes = [
+const userRoutes = [
     {
         method: 'GET',
-        path: '/grades',
+        path: '/users',
         options: {
-            handler: handler.fetchGrades,
-            description: 'Get grades',
-            notes: 'Returns all grades',
-            tags: ['api', 'grade'],
+            handler: handler.fetchUsers,
+            description: 'Get Users',
+            notes: 'Returns all Users',
+            tags: ['api', 'user'],
             response: {
                 status: {
-                    200: gradeArray,
+                    200: userArray,
                     400: undefined,
                     404: undefined,
                     500: undefined
@@ -23,18 +23,18 @@ const GradeRoutes = [
     },
     {
         method: 'GET',
-        path: '/grades/{id}',
+        path: '/users/{id}',
         options: {
-            handler: handler.fetchGradeById,
-            description: 'Get grade by id',
-            notes: 'Returns grade by id',
-            tags: ['api', 'grade'],
+            handler: handler.fetchUserById,
+            description: 'Get User by id',
+            notes: 'Returns User by id',
+            tags: ['api', 'user'],
             validate: {
-                params: integer
+                params: string
             },
             response: {
                 status: {
-                    200: grade,
+                    200: user,
                     400: undefined,
                     404: undefined,
                     500: undefined
@@ -44,14 +44,14 @@ const GradeRoutes = [
     },
     {
         method: 'POST',
-        path: '/grades',
+        path: '/users',
         options: {
-            handler: handler.createGrade,
-            description: 'Create grade',
-            notes: 'Creates a new grade',
-            tags: ['api', 'grade'],
+            handler: handler.createUser,
+            description: 'Create User',
+            notes: 'Creates a new User',
+            tags: ['api', 'user'],
             validate: {
-                payload: grade
+                payload: user
             },
             response: {
                 status: {
@@ -65,15 +65,15 @@ const GradeRoutes = [
     },
     {
         method: 'PATCH',
-        path: '/grades/{id}',
+        path: '/users/{id}',
         options: {
-            handler: handler.updateGrade,
-            description: 'Update grade by id',
-            notes: 'Updates a grade by id',
-            tags: ['api', 'grade'],
+            handler: handler.updateUser,
+            description: 'Update User by id',
+            notes: 'Updates a User by id',
+            tags: ['api', 'user'],
             validate: {
-                params: integer,
-                payload: grade
+                params: string,
+                payload: user
             },
             response: {
                 status: {
@@ -86,14 +86,14 @@ const GradeRoutes = [
     },
     {
         method: 'DELETE',
-        path: '/grades/{id}',
+        path: '/users/{id}',
         options: {
-            handler: handler.deleteGrade,
-            description: 'Delete grade by id',
-            notes: 'Deletes a grade by id',
-            tags: ['api', 'grade'],
+            handler: handler.deleteUser,
+            description: 'Delete User by id',
+            notes: 'Deletes a User by id',
+            tags: ['api', 'user'],
             validate: {
-                params: integer
+                params: string
             },
             response: {
                 status: {
@@ -106,4 +106,4 @@ const GradeRoutes = [
     }
 ];
 
-export default GradeRoutes;
+export default userRoutes;

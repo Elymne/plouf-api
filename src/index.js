@@ -6,7 +6,7 @@ const start = async () => {
     await server.start();
 
     // Database init
-    await database.sync({force: false});
+    await database.sync({force: true});
 };
 
 start().catch(err => {

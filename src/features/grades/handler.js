@@ -38,34 +38,10 @@ const deleteGrade = (req, h) => {
     return controller.deleteGrade(id).then(() => h.response().code(204));
 };
 
-const fetchUserGrades = (req, h) => {
-    return controller
-        .fetchUserGrades()
-        .then(userGrades => h.response(userGrades).code(200))
-        .catch(() => notFound('No data found'));
-};
-
-const createUserGrade = (req, h) => {
-    const {payload} = req;
-    return controller
-        .createUserGrade(payload)
-        .then(() => h.response().code(201))
-        .catch(() => notFound('No mdr found'));
-};
-
-const deleteUserGrade = (req, h) => {
-    const {id} = req.params;
-    return controller.deleteUserGrade(id).then(() => h.response().code(204));
-};
-
 export default {
     fetchGrades,
     fetchGradeById,
     createGrade,
     updateGrade,
-    deleteGrade,
-
-    fetchUserGrades,
-    createUserGrade,
-    deleteUserGrade
+    deleteGrade
 };
