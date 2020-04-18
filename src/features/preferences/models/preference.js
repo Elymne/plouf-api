@@ -25,7 +25,7 @@ const PreferenceModel = database.define(
         }
     },
     {
-        tableName: 'subject',
+        tableName: 'preference',
         timestamps: false
     }
 );

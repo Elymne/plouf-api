@@ -8,17 +8,17 @@ const fetchSubjectById = id => {
     return SubjectModel.findByPk(id);
 };
 
-const createSubject = subjects => {
-    return SubjectModel.create(subjects);
+const createSubject = subject => {
+    return SubjectModel.create(subject);
 };
 
-const updateSubject = (id, subjects) => {
-    const options = { where: { id } };
-    return SubjectModel.update(subjects, options);
+const updateSubject = (id, subject) => {
+    const options = {where: {id}};
+    return SubjectModel.update(subject, options);
 };
 
 const deleteSubject = id => {
-    const options = { where: { id } };
+    const options = {where: {id}};
     return SubjectModel.destroy(options);
 };
 
@@ -27,5 +27,5 @@ export default {
     fetchSubjectById,
     createSubject,
     updateSubject,
-    deleteSubject,
+    deleteSubject
 };

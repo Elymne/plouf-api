@@ -1,6 +1,4 @@
 import PreferenceModel from './models';
-import SubjectModel from '../subjects/models';
-import UserModel from '../Preferences/models';
 
 const fetchPreferences = () => {
     return PreferenceModel.findAll();
