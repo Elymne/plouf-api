@@ -12,8 +12,8 @@ const fetchUserById = (req, h) => {
     const {id} = req.params;
     return controller
         .fetchUserById(id)
-        .then(User => h.response(user).code(200))
-        .catch(() => notFound('No data found'));
+        .then(user => h.response(user).code(200))
+        .catch(() => notFound('No dataf found'));
 };
 
 const createUser = (req, h) => {

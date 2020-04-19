@@ -1,5 +1,5 @@
 import handler from './handler';
-import {string} from '../common';
+import {string, uuid, integer} from '../common';
 import {preference, preferenceArray} from './validators';
 
 const preferencesRoutes = [
@@ -30,11 +30,32 @@ const preferencesRoutes = [
             notes: 'Returns preference by id',
             tags: ['api', 'preference'],
             validate: {
-                params: string
+                params: uuid
             },
             response: {
                 status: {
                     200: preference,
+                    400: undefined,
+                    404: undefined,
+                    500: undefined
+                }
+            }
+        }
+    },
+    {
+        method: 'GET',
+        path: '/preferences/users/{id}',
+        options: {
+            handler: handler.fetchPreferencesByIdUser,
+            description: 'Get preferences by user id',
+            notes: 'Returns Preferences by user id',
+            tags: ['api', 'preference'],
+            validate: {
+                params: string
+            },
+            response: {
+                status: {
+                    200: preferenceArray,
                     400: undefined,
                     404: undefined,
                     500: undefined
@@ -72,7 +93,7 @@ const preferencesRoutes = [
             notes: 'Updates a preference by id',
             tags: ['api', 'preferences'],
             validate: {
-                params: string,
+                params: uuid,
                 payload: preference
             },
             response: {
@@ -93,7 +114,7 @@ const preferencesRoutes = [
             notes: 'Deletes a preferences by id',
             tags: ['api', 'preferences'],
             validate: {
-                params: string
+                params: uuid
             },
             response: {
                 status: {

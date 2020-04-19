@@ -16,6 +16,14 @@ const fetchPreferenceById = (req, h) => {
         .catch(() => notFound('No data found'));
 };
 
+const fetchPreferencesByIdUser = (req, h) => {
+    const {id} = req.params;
+    return controller
+        .fetchPreferenceByUserId(id)
+        .then(preferences => h.response(preferences).code(200))
+        .catch(() => notFound('No data found'));
+};
+
 const createPreference = (req, h) => {
     const {payload} = req;
     return controller
@@ -40,6 +48,7 @@ const deletePreference = (req, h) => {
 export default {
     fetchPreferences,
     fetchPreferenceById,
+    fetchPreferencesByIdUser,
     createPreference,
     updatePreference,
     deletePreference

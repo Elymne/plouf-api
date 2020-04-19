@@ -8,6 +8,11 @@ const fetchPreferenceById = id => {
     return PreferenceModel.findByPk(id);
 };
 
+const fetchPreferenceByUserId = id => {
+    const options = {where: {idUser: id}};
+    return PreferenceModel.findAll(options);
+};
+
 const createPreference = preference => {
     return PreferenceModel.create(preference);
 };
@@ -25,6 +30,7 @@ const deletePreference = id => {
 export default {
     fetchPreferences,
     fetchPreferenceById,
+    fetchPreferenceByUserId,
     createPreference,
     updatePreference,
     deletePreference
