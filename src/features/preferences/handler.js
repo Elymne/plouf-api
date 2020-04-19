@@ -19,7 +19,15 @@ const fetchPreferenceById = (req, h) => {
 const fetchPreferencesByIdUser = (req, h) => {
     const {id} = req.params;
     return controller
-        .fetchPreferenceByUserId(id)
+        .fetchPreferencesByUserId(id)
+        .then(preferences => h.response(preferences).code(200))
+        .catch(() => notFound('No data found'));
+};
+
+const fetchPreferencesBySubjectGrade = (req, h) => {
+    const {subject, grade} = req.query;
+    return controller
+        .fetchPreferencesBySubjectGrade(subject, grade)
         .then(preferences => h.response(preferences).code(200))
         .catch(() => notFound('No data found'));
 };
@@ -49,6 +57,7 @@ export default {
     fetchPreferences,
     fetchPreferenceById,
     fetchPreferencesByIdUser,
+    fetchPreferencesBySubjectGrade,
     createPreference,
     updatePreference,
     deletePreference

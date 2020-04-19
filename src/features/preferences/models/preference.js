@@ -16,7 +16,7 @@ const PreferenceModel = database.define(
             allowNull: false
         },
         idSubject: {
-            type: STRING,
+            type: INTEGER,
             allowNull: false
         },
         idGrade: {

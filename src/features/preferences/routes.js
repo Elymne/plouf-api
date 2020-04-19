@@ -64,6 +64,24 @@ const preferencesRoutes = [
         }
     },
     {
+        method: 'GET',
+        path: '/preferences/filters',
+        options: {
+            handler: handler.fetchPreferencesBySubjectGrade,
+            description: 'Get preferences by grade and suject id',
+            notes: 'Returns Preferences by grade and subject id',
+            tags: ['api', 'preference'],
+            response: {
+                status: {
+                    200: preferenceArray,
+                    400: undefined,
+                    404: undefined,
+                    500: undefined
+                }
+            }
+        }
+    },
+    {
         method: 'POST',
         path: '/preferences',
         options: {
